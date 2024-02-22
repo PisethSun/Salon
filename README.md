@@ -1,5 +1,5 @@
 ﻿# This project will be part of my ITE505 Capstone. 
-# The project will be build with PHP & JavaScript for backend , HTML ,CSS for frontend
+ -The project will be build with PHP & JavaScript for backend , HTML ,CSS for frontend
 # The Users Requirement :
   - Users can sign up
   - Users can Log in
