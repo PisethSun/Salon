@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <header>
+        <h1>Delete Driving License Application</h1>
+    </header>
+     <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Search Record</a></li>
+            <li><a href="insert.html">Insert Data Record</a></li>
+            <li><a href="edit.html">Edit Record</a></li>
+            <li><a href="delete.html">Delete Record</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <form action="#" method="post" id="licenseApplicationForm">
+            <section>
+                <h2>Search for an Application to DELETE it:</h2>
+                <label for="appID">Application ID:</label>
+                <input type="number" id="appID" name="appID" required>
+
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+    
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" value="2019-07-02" required>
+    
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </section>
+    
+            <section>
+                <h2>Contact Information</h2>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </section>
+    
+            <section>
+                <h2>License Details</h2>
+                <label for="licenseType">License Type:</label>
+                <select id="licenseType" name="licenseType" required>
+                    <option value="learner">Learner's Permit</option>
+                    <option value="full">Full License</option>
+                </select>
+    
+                <label for="vehicleType">Vehicle Type:</label>
+                <input type="text" id="vehicleType" name="vehicleType" required>
+            </section>
+    
+            <button type="submit">Search Application</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Click on the DELETE Button to DELETE the selected Application</h2>
+        <h3>This action can't be UNDONE!</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>License Type</th>
+                    <th>Vehicle Type</th>
+                    <th>Comments</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample data, replace with actual records from your database -->
+                <tr>
+                    <td>John Doe</td>
+                    <td>1990-01-15</td>
+                    <td>Male</td>
+                    <td>john.doe@example.com</td>
+                    <td>123-456-7890</td>
+                    <td>Full License</td>
+                    <td>Car</td>
+                    <td>No comments</td>
+                    <td><a id="deleteLink" href="#">DELETE</a></td>
+                </tr>
+                <!-- Add more rows for additional records -->
+            </tbody>
+        </table>
+    </section>
+
+    <section><h2>Application is Deleted!</h2></section>
+
+    <footer>
+        <p>&copy; 2023 Your Website</p>
+    </footer>
+</body>
+</html>
