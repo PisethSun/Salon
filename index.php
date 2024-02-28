@@ -1,5 +1,8 @@
+
 <!DOCTYPE html>
+
 <html>
+
 <head>  
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Driving License Application Home Page</title>
@@ -44,7 +47,9 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Your Website</p>
+        <p>&copy; <?php echo date('Y')?> Your Website</p>
     </footer>
 </body>
 </html>
+
+?>
