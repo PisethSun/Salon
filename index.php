@@ -1,26 +1,4 @@
-<?php require_once('../private/initialize.php');?>
-<!DOCTYPE html>
-
-<html>
-
-<head>  
-    <link rel="stylesheet" href="./styles/styles.css">
-    <title>Helen Home</title>
-</head>
-<body>
-    <header>
-        <h1>Welcome to Helen's Nail & Spa</h1>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="./public/gallery.html">Gallery</a></li>
-            <li><a href="./public/signup.html">Sing up </a></li>
-            <li><a href="./public/login.html">Login</a></li>
-            
-        </ul>
-    </nav>
+<?php require_once('private/initialize.php');?>
 
     <section>
         <h1>Welcome to </h1>
@@ -46,9 +24,7 @@
         <p>Overall, a driving license is a crucial document that not only legalizes the operation of a motor vehicle but also signifies a commitment to responsible and safe driving practices. It plays a vital role in ensuring the safety of both the driver and other individuals on the road.</p>
     </section>
 
-    <footer>
-        <p>&copy; <?php echo date('Y')?> Your Website</p>
-    </footer>
+   
 </body>
 </html>
 
