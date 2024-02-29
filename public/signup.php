@@ -12,7 +12,7 @@
     </header>
 
     <section>
-        <form action="signup.html" method="post" id="signupForm">
+        <form action="signup.php" method="post" id="signupForm">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
