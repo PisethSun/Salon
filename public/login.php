@@ -1,16 +1,29 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
+    
+    <?php 
+    require_once('../private/initialize.php');
+    
+    
+    
+    $errors =[];
+    $username ='';
+    $password ='';
 
-<head>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-</head>
+    if(is_post_request())
 
-<body>
-    <header>
-        <h1>Login</h1>
-    </header> -->
+    {
+        $username = $_POST['username'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        redirect_to(url_for('index.php'));
+
+    }
+    ?>
+    
+    
+    
+
+    
+    
     <?php include('../private/shared/public_header.php');?>
     <section>
         <form action="login.php" method="post" >
