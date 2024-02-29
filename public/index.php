@@ -26,7 +26,7 @@
         <p>Overall, a driving license is a crucial document that not only legalizes the operation of a motor vehicle but also signifies a commitment to responsible and safe driving practices. It plays a vital role in ensuring the safety of both the driver and other individuals on the road.</p>
     </section>
 
-    <?php include('private/shared/public_footer.php');?>
+    <?php include('../private/shared/public_footer.php');?>
 
    
 

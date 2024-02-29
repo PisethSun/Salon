@@ -1,30 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require_once('../private/initialize.php');?>
+<?php include('../private/shared/public_header.php');?>
 
-<head>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gallery</title>
-</head>
-
-<body>
-    <header>
-        <h1>Gallery</h1>
-    </header>
 
     <section class="gallery-container">
         <div class="gallery-item">
-            <img src="images/image1.jpg" alt="Image 1">
+            <img src="images/pic1.jpg" alt="Image 1">
         </div>
         <div class="gallery-item">
-            <img src="images/image2.jpg" alt="Image 2">
+            <img src="images/pic2.jpg" alt="Image 2">
         </div>
         <!-- Add more gallery items as needed -->
     </section>
 
-    <footer>
-        <p>&copy; 2024 Your Website</p>
-    </footer>
-</body>
-
-</html>
+    <?php include('../private/shared/public_footer.php');?>
