@@ -14,9 +14,9 @@
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="./public/gallery.html">Gallery</a></li>
-            <li><a href="./public/signup.html">Sing up </a></li>
-            <li><a href="./public/login.html">Login</a></li>
+            <li><a href="../public/gallery.php">Gallery</a></li>
+            <li><a href="../public/signup.php">Sing up </a></li>
+            <li><a href="../public/login.php">Login</a></li>
             
         </ul>
     </nav>

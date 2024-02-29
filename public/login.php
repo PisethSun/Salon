@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,10 +10,10 @@
 <body>
     <header>
         <h1>Login</h1>
-    </header>
-
+    </header> -->
+    <?php include('../private/shared/public_header.php');?>
     <section>
-        <form action="login.html" method="post" >
+        <form action="login.php" method="post" >
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 

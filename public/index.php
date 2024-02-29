@@ -1,5 +1,5 @@
-<?php require_once('private/initialize.php');?>
-<?php include('private/shared/public_header.php');?>
+<?php require_once('../private/initialize.php');?>
+<?php include('../private/shared/public_header.php');?>
 
 
     <section>
@@ -29,6 +29,5 @@
     <?php include('private/shared/public_footer.php');?>
 
    
-</body>
-</html>
+
 

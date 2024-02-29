@@ -1,7 +1,7 @@
 <footer>
         <p>&copy; <?php echo date('Y')?> Your Website</p>
     </footer>
-<php 
+<?php 
 
 
 db_disconnec($db);

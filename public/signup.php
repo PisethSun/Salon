@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <title>Sign Up</title>
-</head>
-
-<body>
-    <header>
-        <h1>Sign Up</h1>
-    </header>
-
+<?php include('../private/shared/public_header.php');?>
     <section>
         <form action="signup.php" method="post" id="signupForm">
             <label for="username">Username:</label>
@@ -26,9 +14,4 @@
         </form>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Your Website</p>
-    </footer>
-</body>
-
-</html>
+    <?php include('../private/shared/public_footer.php');?>
