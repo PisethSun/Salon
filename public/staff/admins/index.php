@@ -25,7 +25,7 @@ $admin_set = find_all_employee();
         <th>First</th>
         <th>Last</th>
         <th>employee_email</th>
-        <th>Username</th>
+        <th>employee_username</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
@@ -37,7 +37,7 @@ $admin_set = find_all_employee();
           <td><?php echo h($admin['employee_first_name']); ?></td>
           <td><?php echo h($admin['employee_last_name']); ?></td>
           <td><?php echo h($admin['employee_email']); ?></td>
-          <td><?php echo h($admin['username']); ?></td>
+          <td><?php echo h($admin['employee_username']); ?></td>
           <td><a class="action" href="<?php echo url_for('/staff/employee/show.php?id=' . h(u($admin['id']))); ?>">View</a></td>
           <td><a class="action" href="<?php echo url_for('/staff/employee/edit.php?id=' . h(u($admin['id']))); ?>">Edit</a></td>
           <td><a class="action" href="<?php echo url_for('/staff/employee/delete.php?id=' . h(u($admin['id']))); ?>">Delete</a></td>

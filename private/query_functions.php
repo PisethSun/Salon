@@ -26,11 +26,11 @@
     return $admin; // returns an assoc. array
   }
 
-  function find_admin_by_username($username) {
+  function find_admin_by_employee_username($employee_username) {
     global $db;
 
     $sql = "SELECT * FROM employee ";
-    $sql .= "WHERE username='" . db_escape($db, $username) . "' ";
+    $sql .= "WHERE employee_username='" . db_escape($db, $employee_username) . "' ";
     $sql .= "LIMIT 1";
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
@@ -63,12 +63,12 @@
       $errors[] = "employee_email must be a valid format.";
     }
 
-    if(is_blank($admin['username'])) {
-      $errors[] = "Username cannot be blank.";
-    } elseif (!has_length($admin['username'], array('min' => 8, 'max' => 255))) {
-      $errors[] = "Username must be between 8 and 255 characters.";
-    } elseif (!has_unique_username($admin['username'], $admin['id'] ?? 0)) {
-      $errors[] = "Username not allowed. Try another.";
+    if(is_blank($admin['employee_username'])) {
+      $errors[] = "employee_username cannot be blank.";
+    } elseif (!has_length($admin['employee_username'], array('min' => 8, 'max' => 255))) {
+      $errors[] = "employee_username must be between 8 and 255 characters.";
+    } elseif (!has_unique_employee_username($admin['employee_username'], $admin['id'] ?? 0)) {
+      $errors[] = "employee_username not allowed. Try another.";
     }
 
     if($password_required) {
@@ -84,8 +84,8 @@
         $errors[] = "Password must contain at least 1 number";
       } elseif (!preg_match('/[^A-Za-z0-9\s]/', $admin['password'])) {
         $errors[] = "Password must contain at least 1 symbol";
-      } elseif($admin['username'] == $admin['password']) {
-        $errors[] = "Username and password must be different";
+      } elseif($admin['employee_username'] == $admin['password']) {
+        $errors[] = "employee_username and password must be different";
       }
 
       if(is_blank($admin['confirm_password'])) {
@@ -106,16 +106,16 @@
       return $errors;
     }
 
-    $hashed_password = password_hash($admin['password'], PASSWORD_BCRYPT);
+    $employee_hashed_password  = password_hash($admin['password'], PASSWORD_BCRYPT);
 
     $sql = "INSERT INTO employee ";
-    $sql .= "(employee_first_name, employee_last_name, employee_email, username, hashed_password) ";
+    $sql .= "(employee_first_name, employee_last_name, employee_email, employee_username, employee_hashed_password ) ";
     $sql .= "VALUES (";
     $sql .= "'" . db_escape($db, $admin['employee_first_name']) . "',";
     $sql .= "'" . db_escape($db, $admin['employee_last_name']) . "',";
     $sql .= "'" . db_escape($db, $admin['employee_email']) . "',";
-    $sql .= "'" . db_escape($db, $admin['username']) . "',";
-    $sql .= "'" . db_escape($db, $hashed_password) . "'";
+    $sql .= "'" . db_escape($db, $admin['employee_username']) . "',";
+    $sql .= "'" . db_escape($db, $employee_hashed_password ) . "'";
     $sql .= ")";
     $result = mysqli_query($db, $sql);
 
@@ -145,10 +145,10 @@
     $sql .= "employee_last_name='" . db_escape($db, $admin['employee_last_name']) . "', ";
     $sql .= "employee_email='" . db_escape($db, $admin['employee_email']) . "', ";
     if($password_sent) {
-      $hashed_password = password_hash($admin['password'], PASSWORD_BCRYPT);
-      $sql .= "hashed_password='" . db_escape($db, $hashed_password) . "', ";
+      $employee_hashed_password  = password_hash($admin['password'], PASSWORD_BCRYPT);
+      $sql .= "employee_hashed_password ='" . db_escape($db, $employee_hashed_password ) . "', ";
     }
-    $sql .= "username='" . db_escape($db, $admin['username']) . "' ";
+    $sql .= "employee_username='" . db_escape($db, $admin['employee_username']) . "' ";
     $sql .= "WHERE id='" . db_escape($db, $admin['id']) . "' ";
     $sql .= "LIMIT 1";
     $result = mysqli_query($db, $sql);

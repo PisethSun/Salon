@@ -18,7 +18,7 @@ $admin = find_admin_by_id($id);
 
   <div class="admin show">
 
-    <h1>Admin: <?php echo h($admin['username']); ?></h1>
+    <h1>Admin: <?php echo h($admin['employee_username']); ?></h1>
 
     <div class="actions">
       <a class="action" href="<?php echo url_for('/staff/employee/edit.php?id=' . h(u($admin['id']))); ?>">Edit</a>
@@ -39,8 +39,8 @@ $admin = find_admin_by_id($id);
         <dd><?php echo h($admin['employee_email']); ?></dd>
       </dl>
       <dl>
-        <dt>Username</dt>
-        <dd><?php echo h($admin['username']); ?>
+        <dt>employee_username</dt>
+        <dd><?php echo h($admin['employee_username']); ?>
         </dd>
       </dl>
     </div>

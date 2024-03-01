@@ -5,7 +5,7 @@ function log_in_admin($admin) {
   // Prevent session fixation attacks
   session_regenerate_id();
   $_SESSION['admin_id'] = $admin['id'];
-  $_SESSION['username'] = $admin['username'];
+  $_SESSION['employee_username'] = $admin['employee_username'];
   $_SESSION['last_login'] = time();
   $_SESSION['login_expires'] = strtotime("+1 day midnight");
   return true;
@@ -13,7 +13,7 @@ function log_in_admin($admin) {
 
 function log_out_admin() {
   unset($_SESSION['admin_id']);
-  unset($_SESSION['username']);
+  unset($_SESSION['employee_username']);
   unset($_SESSION['last_login']);
   unset($_SESSION['login_expires']);
   return true;

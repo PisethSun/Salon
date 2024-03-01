@@ -93,16 +93,16 @@
     return preg_match($employee_email_regex, $value) === 1;
   }
 
-  // has_unique_username('johnqpublic')
-  // * Validates uniqueness of employee.username
-  // * For new records, provide only the username.
+  // has_unique_employee_username('johnqpublic')
+  // * Validates uniqueness of employee.employee_username
+  // * For new records, provide only the employee_username.
   // * For existing records, provide current ID as second argument
-  //   has_unique_username('johnqpublic', 4)
-  function has_unique_username($username, $current_id="0") {
+  //   has_unique_employee_username('johnqpublic', 4)
+  function has_unique_employee_username($employee_username, $current_id="0") {
     global $db;
 
     $sql = "SELECT * FROM employee ";
-    $sql .= "WHERE username='" . db_escape($db, $username) . "' ";
+    $sql .= "WHERE employee_username='" . db_escape($db, $employee_username) . "' ";
     $sql .= "AND id != '" . db_escape($db, $current_id) . "'";
 
     $result = mysqli_query($db, $sql);

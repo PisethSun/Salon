@@ -15,7 +15,7 @@ if(is_post_request()) {
   $admin['employee_first_name'] = $_POST['employee_first_name'] ?? '';
   $admin['employee_last_name'] = $_POST['employee_last_name'] ?? '';
   $admin['employee_email'] = $_POST['employee_email'] ?? '';
-  $admin['username'] = $_POST['username'] ?? '';
+  $admin['employee_username'] = $_POST['employee_username'] ?? '';
   $admin['password'] = $_POST['password'] ?? '';
   $admin['confirm_password'] = $_POST['confirm_password'] ?? '';
 
@@ -56,8 +56,8 @@ if(is_post_request()) {
       </dl>
 
       <dl>
-        <dt>Username</dt>
-        <dd><input type="text" name="username" value="<?php echo h($admin['username']); ?>" /></dd>
+        <dt>employee_username</dt>
+        <dd><input type="text" name="employee_username" value="<?php echo h($admin['employee_username']); ?>" /></dd>
       </dl>
 
       <dl>
