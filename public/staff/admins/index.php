@@ -4,19 +4,19 @@ require_once('../../../private/initialize.php');
 
 require_login();
 
-$admin_set = find_all_admins();
+$admin_set = find_all_employee();
 
 ?>
 
-<?php $page_title = 'Admins'; ?>
+<?php $page_title = 'employee'; ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
-  <div class="admins listing">
-    <h1>Admins</h1>
+  <div class="employee listing">
+    <h1>employee</h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/staff/admins/new.php'); ?>">Create New Admin</a>
+      <a class="action" href="<?php echo url_for('/staff/employee/new.php'); ?>">Create New Admin</a>
     </div>
 
     <table class="list">
@@ -24,7 +24,7 @@ $admin_set = find_all_admins();
         <th>ID</th>
         <th>First</th>
         <th>Last</th>
-        <th>Email</th>
+        <th>employee_email</th>
         <th>Username</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
@@ -34,13 +34,13 @@ $admin_set = find_all_admins();
       <?php while($admin = mysqli_fetch_assoc($admin_set)) { ?>
         <tr>
           <td><?php echo h($admin['id']); ?></td>
-          <td><?php echo h($admin['first_name']); ?></td>
-          <td><?php echo h($admin['last_name']); ?></td>
-          <td><?php echo h($admin['email']); ?></td>
+          <td><?php echo h($admin['employee_first_name']); ?></td>
+          <td><?php echo h($admin['employee_last_name']); ?></td>
+          <td><?php echo h($admin['employee_email']); ?></td>
           <td><?php echo h($admin['username']); ?></td>
-          <td><a class="action" href="<?php echo url_for('/staff/admins/show.php?id=' . h(u($admin['id']))); ?>">View</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/admins/edit.php?id=' . h(u($admin['id']))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/admins/delete.php?id=' . h(u($admin['id']))); ?>">Delete</a></td>
+          <td><a class="action" href="<?php echo url_for('/staff/employee/show.php?id=' . h(u($admin['id']))); ?>">View</a></td>
+          <td><a class="action" href="<?php echo url_for('/staff/employee/edit.php?id=' . h(u($admin['id']))); ?>">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for('/staff/employee/delete.php?id=' . h(u($admin['id']))); ?>">Delete</a></td>
         </tr>
       <?php } ?>
     </table>

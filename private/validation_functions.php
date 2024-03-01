@@ -82,26 +82,26 @@
     return strpos($value, $required_string) !== false;
   }
 
-  // has_valid_email_format('nobody@nowhere.com')
-  // * validate correct format for email addresses
+  // has_valid_employee_email_format('nobody@nowhere.com')
+  // * validate correct format for employee_email addresses
   // * format: [chars]@[chars].[2+ letters]
   // * preg_match is helpful, uses a regular expression
   //    returns 1 for a match, 0 for no match
   //    http://php.net/manual/en/function.preg-match.php
-  function has_valid_email_format($value) {
-    $email_regex = '/\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\Z/i';
-    return preg_match($email_regex, $value) === 1;
+  function has_valid_employee_email_format($value) {
+    $employee_email_regex = '/\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\Z/i';
+    return preg_match($employee_email_regex, $value) === 1;
   }
 
   // has_unique_username('johnqpublic')
-  // * Validates uniqueness of admins.username
+  // * Validates uniqueness of employee.username
   // * For new records, provide only the username.
   // * For existing records, provide current ID as second argument
   //   has_unique_username('johnqpublic', 4)
   function has_unique_username($username, $current_id="0") {
     global $db;
 
-    $sql = "SELECT * FROM admins ";
+    $sql = "SELECT * FROM employee ";
     $sql .= "WHERE username='" . db_escape($db, $username) . "' ";
     $sql .= "AND id != '" . db_escape($db, $current_id) . "'";
 

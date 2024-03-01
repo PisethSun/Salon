@@ -14,29 +14,29 @@ $admin = find_admin_by_id($id);
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/admins/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/staff/employee/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="admin show">
 
     <h1>Admin: <?php echo h($admin['username']); ?></h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/staff/admins/edit.php?id=' . h(u($admin['id']))); ?>">Edit</a>
-      <a class="action" href="<?php echo url_for('/staff/admins/delete.php?id=' . h(u($admin['id']))); ?>">Delete</a>
+      <a class="action" href="<?php echo url_for('/staff/employee/edit.php?id=' . h(u($admin['id']))); ?>">Edit</a>
+      <a class="action" href="<?php echo url_for('/staff/employee/delete.php?id=' . h(u($admin['id']))); ?>">Delete</a>
     </div>
 
     <div class="attributes">
       <dl>
         <dt>First name</dt>
-        <dd><?php echo h($admin['first_name']); ?></dd>
+        <dd><?php echo h($admin['employee_first_name']); ?></dd>
       </dl>
       <dl>
         <dt>Last name</dt>
-        <dd><?php echo h($admin['last_name']); ?></dd>
+        <dd><?php echo h($admin['employee_last_name']); ?></dd>
       </dl>
       <dl>
-        <dt>Email</dt>
-        <dd><?php echo h($admin['email']); ?></dd>
+        <dt>employee_email</dt>
+        <dd><?php echo h($admin['employee_email']); ?></dd>
       </dl>
       <dl>
         <dt>Username</dt>

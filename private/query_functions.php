@@ -1,13 +1,13 @@
 <?php
 
-  // Admins
+  // employee
 
-  // Find all admins, ordered last_name, first_name
-  function find_all_admins() {
+  // Find all employee, ordered employee_last_name, employee_first_name
+  function find_all_employee() {
     global $db;
 
-    $sql = "SELECT * FROM admins ";
-    $sql .= "ORDER BY last_name ASC, first_name ASC";
+    $sql = "SELECT * FROM employee ";
+    $sql .= "ORDER BY employee_last_name ASC, employee_first_name ASC";
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
     return $result;
@@ -16,7 +16,7 @@
   function find_admin_by_id($id) {
     global $db;
 
-    $sql = "SELECT * FROM admins ";
+    $sql = "SELECT * FROM employee ";
     $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
     $sql .= "LIMIT 1";
     $result = mysqli_query($db, $sql);
@@ -29,7 +29,7 @@
   function find_admin_by_username($username) {
     global $db;
 
-    $sql = "SELECT * FROM admins ";
+    $sql = "SELECT * FROM employee ";
     $sql .= "WHERE username='" . db_escape($db, $username) . "' ";
     $sql .= "LIMIT 1";
     $result = mysqli_query($db, $sql);
@@ -43,24 +43,24 @@
 
     $password_required = $options['password_required'] ?? true;
 
-    if(is_blank($admin['first_name'])) {
+    if(is_blank($admin['employee_first_name'])) {
       $errors[] = "First name cannot be blank.";
-    } elseif (!has_length($admin['first_name'], array('min' => 2, 'max' => 255))) {
+    } elseif (!has_length($admin['employee_first_name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "First name must be between 2 and 255 characters.";
     }
 
-    if(is_blank($admin['last_name'])) {
+    if(is_blank($admin['employee_last_name'])) {
       $errors[] = "Last name cannot be blank.";
-    } elseif (!has_length($admin['last_name'], array('min' => 2, 'max' => 255))) {
+    } elseif (!has_length($admin['employee_last_name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "Last name must be between 2 and 255 characters.";
     }
 
-    if(is_blank($admin['email'])) {
-      $errors[] = "Email cannot be blank.";
-    } elseif (!has_length($admin['email'], array('max' => 255))) {
+    if(is_blank($admin['employee_email'])) {
+      $errors[] = "employee_email cannot be blank.";
+    } elseif (!has_length($admin['employee_email'], array('max' => 255))) {
       $errors[] = "Last name must be less than 255 characters.";
-    } elseif (!has_valid_email_format($admin['email'])) {
-      $errors[] = "Email must be a valid format.";
+    } elseif (!has_valid_employee_email_format($admin['employee_email'])) {
+      $errors[] = "employee_email must be a valid format.";
     }
 
     if(is_blank($admin['username'])) {
@@ -108,12 +108,12 @@
 
     $hashed_password = password_hash($admin['password'], PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO admins ";
-    $sql .= "(first_name, last_name, email, username, hashed_password) ";
+    $sql = "INSERT INTO employee ";
+    $sql .= "(employee_first_name, employee_last_name, employee_email, username, hashed_password) ";
     $sql .= "VALUES (";
-    $sql .= "'" . db_escape($db, $admin['first_name']) . "',";
-    $sql .= "'" . db_escape($db, $admin['last_name']) . "',";
-    $sql .= "'" . db_escape($db, $admin['email']) . "',";
+    $sql .= "'" . db_escape($db, $admin['employee_first_name']) . "',";
+    $sql .= "'" . db_escape($db, $admin['employee_last_name']) . "',";
+    $sql .= "'" . db_escape($db, $admin['employee_email']) . "',";
     $sql .= "'" . db_escape($db, $admin['username']) . "',";
     $sql .= "'" . db_escape($db, $hashed_password) . "'";
     $sql .= ")";
@@ -140,10 +140,10 @@
       return $errors;
     }
 
-    $sql = "UPDATE admins SET ";
-    $sql .= "first_name='" . db_escape($db, $admin['first_name']) . "', ";
-    $sql .= "last_name='" . db_escape($db, $admin['last_name']) . "', ";
-    $sql .= "email='" . db_escape($db, $admin['email']) . "', ";
+    $sql = "UPDATE employee SET ";
+    $sql .= "employee_first_name='" . db_escape($db, $admin['employee_first_name']) . "', ";
+    $sql .= "employee_last_name='" . db_escape($db, $admin['employee_last_name']) . "', ";
+    $sql .= "employee_email='" . db_escape($db, $admin['employee_email']) . "', ";
     if($password_sent) {
       $hashed_password = password_hash($admin['password'], PASSWORD_BCRYPT);
       $sql .= "hashed_password='" . db_escape($db, $hashed_password) . "', ";
@@ -167,7 +167,7 @@
   function delete_admin($admin) {
     global $db;
 
-    $sql = "DELETE FROM admins ";
+    $sql = "DELETE FROM employee ";
     $sql .= "WHERE id='" . db_escape($db, $admin['id']) . "' ";
     $sql .= "LIMIT 1;";
     $result = mysqli_query($db, $sql);

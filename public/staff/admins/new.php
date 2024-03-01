@@ -6,9 +6,9 @@ require_login();
 
 if(is_post_request()) {
   $admin = [];
-  $admin['first_name'] = $_POST['first_name'] ?? '';
-  $admin['last_name'] = $_POST['last_name'] ?? '';
-  $admin['email'] = $_POST['email'] ?? '';
+  $admin['employee_first_name'] = $_POST['employee_first_name'] ?? '';
+  $admin['employee_last_name'] = $_POST['employee_last_name'] ?? '';
+  $admin['employee_email'] = $_POST['employee_email'] ?? '';
   $admin['username'] = $_POST['username'] ?? '';
   $admin['password'] = $_POST['password'] ?? '';
   $admin['confirm_password'] = $_POST['confirm_password'] ?? '';
@@ -17,7 +17,7 @@ if(is_post_request()) {
   if($result === true) {
     $new_id = mysqli_insert_id($db);
     $_SESSION['message'] = 'Admin created.';
-    redirect_to(url_for('/staff/admins/show.php?id=' . $new_id));
+    redirect_to(url_for('/staff/employee/show.php?id=' . $new_id));
   } else {
     $errors = $result;
   }
@@ -25,9 +25,9 @@ if(is_post_request()) {
 } else {
   // display the blank form
   $admin = [];
-  $admin["first_name"] = '';
-  $admin["last_name"] = '';
-  $admin["email"] = '';
+  $admin["employee_first_name"] = '';
+  $admin["employee_last_name"] = '';
+  $admin["employee_email"] = '';
   $admin["username"] = '';
   $admin['password'] = '';
   $admin['confirm_password'] = '';
@@ -40,22 +40,22 @@ if(is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/admins/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/staff/employee/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="admin new">
     <h1>Create Admin</h1>
 
     <?php echo display_errors($errors); ?>
 
-    <form action="<?php echo url_for('/staff/admins/new.php'); ?>" method="post">
+    <form action="<?php echo url_for('/staff/employee/new.php'); ?>" method="post">
       <dl>
         <dt>First name</dt>
-        <dd><input type="text" name="first_name" value="<?php echo h($admin['first_name']); ?>" /></dd>
+        <dd><input type="text" name="employee_first_name" value="<?php echo h($admin['employee_first_name']); ?>" /></dd>
       </dl>
 
       <dl>
         <dt>Last name</dt>
-        <dd><input type="text" name="last_name" value="<?php echo h($admin['last_name']); ?>" /></dd>
+        <dd><input type="text" name="employee_last_name" value="<?php echo h($admin['employee_last_name']); ?>" /></dd>
       </dl>
 
       <dl>
@@ -64,8 +64,8 @@ if(is_post_request()) {
       </dl>
 
       <dl>
-        <dt>Email </dt>
-        <dd><input type="text" name="email" value="<?php echo h($admin['email']); ?>" /><br /></dd>
+        <dt>employee_email </dt>
+        <dd><input type="text" name="employee_email" value="<?php echo h($admin['employee_email']); ?>" /><br /></dd>
       </dl>
 
       <p>Passwords should be at least 12 characters and include at least one uppercase letter, lowercase letter, number, and symbol.</p>
