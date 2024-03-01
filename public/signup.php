@@ -1,7 +1,7 @@
 <?php include('../private/shared/public_header.php');?>
     <section>
         <form action="signup.php" method="post" id="signupForm">
-            <label for="employee_username">employee_username:</label>
+            <label for="employee_username">Username:</label>
             <input type="text" id="employee_username" name="employee_username" required>
 
             <label for="email">Email:</label>

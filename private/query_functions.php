@@ -13,11 +13,11 @@
     return $result;
   }
 
-  function find_admin_by_id($id) {
+  function find_admin_by_id($employee_id) {
     global $db;
 
     $sql = "SELECT * FROM employee ";
-    $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+    $sql .= "WHERE id='" . db_escape($db, $employee_id) . "' ";
     $sql .= "LIMIT 1";
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
