@@ -73,4 +73,27 @@ function display_session_message() {
   }
 }
 
+function authenticate_user($username, $password)
+{
+    global $db;  // Assuming $db_connect is your database connection
+
+    // Sanitize inputs to prevent SQL injection
+    $account_username = mysqli_real_escape_string($db, $username);
+    $account_password = mysqli_real_escape_string($db, $password);
+
+    // Query to check if the user exists with the given username and password
+    $query = "SELECT * FROM account WHERE account_username = '$account_username' AND account_password = '$account_password' LIMIT 1";
+
+    $result = mysqli_query($db, $query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        // User exists, return user data
+        return mysqli_fetch_assoc($result);
+    } else {
+        // User not found or invalid credentials
+        return false;
+    }
+}
 ?>
+
+
