@@ -2,7 +2,7 @@
     <section>
         <form action="signup.php" method="post" id="signupForm">
             <label for="employee_username">Username:</label>
-            <input type="text" id="employee_username" name="employee_username" required>
+            <input type="text" id="username" name="username" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
