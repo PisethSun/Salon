@@ -1,18 +1,40 @@
 <?php
-session_start();  // Start or resume a session
 
-// Check if the user is logged in
-if (isset($_SESSION['account_id'])) {
-    $user_id = $_SESSION['account_id'];
-    $username = $_SESSION['username'];
+require_once('../../private/initialize.php');
 
-    // Display information about the logged-in user
-    echo "Welcome, $username! Your user ID is $account_id.";
+require_login();
 
-    // You can use this information to customize the content for the logged-in user
-} else {
-    // Redirect to the login page if the user is not logged in
-    header("Location: login.php");
-    exit;
-}
+$users_set = find_all_account();
+
 ?>
+
+<?php $page_title = 'Admins'; ?>
+
+<div id="content">
+  <div class="users listing">
+    <h1>Admins</h1>
+
+    <table class="list">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+       
+        
+      </tr>
+
+      <?php while($account = mysqli_fetch_assoc($users_set)) { ?>
+        <tr>
+          <td><?php echo h($account['account_id']); ?></td>
+          <td><?php echo h($account['account_username']); ?></td>
+        </tr>
+      <?php } ?>
+    </table>
+
+    <?php
+      mysqli_free_result($users_set);
+    ?>
+  </div>
+
+</div>
+
+<?php include('../private/shared/public_footer.php'); ?>
