@@ -15,7 +15,7 @@ if (is_post_request()) {
     if ($authenticated_user) {
         if ($authenticated_user['account_access_level'] == '1') {
             // Redirect to admin page
-            header("Location: ../staff/admin/index.php");
+            header("Location: ./staff/admin/index.php");
             exit;  // Important to exit after a header redirect
         } else {
             // Redirect to index page for regular users
