@@ -19,7 +19,7 @@ if (is_post_request()) {
             exit;  // Important to exit after a header redirect
         } else {
             // Redirect to index page for regular users
-            header("Location: ../users/index.php");
+            header("Location: ./users/index.php");
             exit;
         }
     } else {
