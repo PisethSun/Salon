@@ -1,10 +1,10 @@
-<?php require_once('../../../../private/initialize.php');?>
+<?php require_once('../../../private/initialize.php');?>
 
-<? $page_title = 'Subject';?>
-<?php include('../../../../private/shared/staff_header.php');?>
+<?php $page_title = 'Subject';?>
+<?php include(SHARED_PATH .'/staff_header.php');?>
 
 
 
 <div id="content"></div>
 
-<?php include('../../../../private/shared/public_footer.php');?>
+<?php include(SHARED_PATH .'/public_footer.php');?>
