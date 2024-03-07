@@ -1,32 +1,26 @@
 <?php require_once('../private/initialize.php');?>
-<?php include('../private/shared/public_header.php');?>
+<?php $page_title = 'Welcome You';?>
+<?php include(SHARED_PATH .'/public_header.php');?>
 
 
-    <section>
-        <h1>Welcome to </h1>
+<div class="home-bg" style="background-image: url('images/background2.jpg');" >
 
-        <p><strong>A driving license</strong> is a legal document issued by a government authority that grants an individual the legal right to operate a motor vehicle on public roads. There are several reasons why a driving license is necessary:</p>
-    
-        <ol>
-            <li><strong>Legal Requirement:</strong> In many countries, it is illegal to drive a motor vehicle without a valid driving license. Operating a vehicle without a license can result in legal consequences, fines, and penalties.</li>
-    
-            <li><strong>Proof of Competence:</strong> Obtaining a driving license typically involves passing written and practical tests, demonstrating the driver's knowledge of traffic rules, road signs, and safe driving practices. The license serves as proof that the individual has the necessary skills and knowledge to drive safely.</li>
-    
-            <li><strong>Identification:</strong> A driving license often serves as an official form of identification. It contains information such as the driver's name, date of birth, address, and a photograph. It is widely accepted as a valid form of identification in various situations.</li>
-    
-            <li><strong>Traffic Safety:</strong> The process of obtaining a driving license includes education on traffic rules, road signs, and safe driving behaviors. This helps ensure that drivers are aware of and adhere to safety regulations, contributing to overall road safety.</li>
-    
-            <li><strong>Insurance Purposes:</strong> Many insurance companies require a valid driving license when providing coverage for a motor vehicle. Having a license demonstrates that the driver has met certain standards and is legally allowed to operate a vehicle.</li>
-    
-            <li><strong>Responsibility:</strong> The issuance of a driving license signifies that the individual has accepted the responsibility that comes with operating a motor vehicle. This includes obeying traffic laws, respecting the rights of other road users, and taking necessary precautions to ensure safety.</li>
-    
-            <li><strong>International Recognition:</strong> A driving license is often required when driving in a foreign country. It serves as proof that the driver is authorized to operate a vehicle and is familiar with the traffic laws of their home country.</li>
-        </ol>
-    
-        <p>Overall, a driving license is a crucial document that not only legalizes the operation of a motor vehicle but also signifies a commitment to responsible and safe driving practices. It plays a vital role in ensuring the safety of both the driver and other individuals on the road.</p>
-    </section>
+   <section class="home" >
 
-    <?php include('../private/shared/public_footer.php');?>
+   <section class="products">
+<section class="pgallery">
+
+   <h1 class="title" style="font-size: 50px;">  <blink> Live Life The Way You Feel  </blink> </h1>
+   <p class= "titlep"> SEE ALL DESIGN WE HAVE TO OFFER & MORE</p>
+</section>
+
+</section>
+
+   </section>
+
+</div>
+
+    <?php include(SHARED_PATH .'/public_footer.php');?>
 
    
 
