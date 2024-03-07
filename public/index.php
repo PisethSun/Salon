@@ -5,7 +5,7 @@
 
 <h1>Public Home Page</h1>
 
-    <?php include(SHARED_PATH .'/public_footer.php');?>
+<?php include(SHARED_PATH .'/public_footer.php');?>
 
    
 

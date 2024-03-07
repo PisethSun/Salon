@@ -1,6 +1,6 @@
 <?php
 require_once('../private/initialize.php');
-include('../private/shared/public_header.php');
+
 
 if (is_post_request()) {
   $account = [];
@@ -29,7 +29,7 @@ if (is_post_request()) {
 ?>
 
 <?php $page_title = 'Create Account'; ?>
-
+<?php include(SHARED_PATH .'/public_header.php');?>
 <section>
 <h2>User Sign Up</h2>
     <form action="signup.php" method="post" id="signupForm">
@@ -53,4 +53,4 @@ if (is_post_request()) {
     </form>
 </section>
 
-<?php include('../private/shared/public_footer.php'); ?>
+<?php include(SHARED_PATH .'/public_footer.php');?>

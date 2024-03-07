@@ -29,8 +29,8 @@ if (is_post_request()) {
     
 }
 ?>
-
-<?php include('../private/shared/public_header.php'); ?>
+<?php $page_title = 'Login'; ?>
+<?php include(SHARED_PATH .'/public_header.php');?>
 
 <section>
     <form action="login.php" method="post">
@@ -48,9 +48,7 @@ if (is_post_request()) {
     } ?>
 </section>
 
-<footer>
-    <p>&copy; 2024 Your Website</p>
-</footer>
+<?php include(SHARED_PATH .'/public_footer.php');?>
 </body>
 
 </html>

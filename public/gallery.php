@@ -1,5 +1,6 @@
 <?php require_once('../private/initialize.php');?>
-<?php include('../private/shared/public_header.php');?>
+<?php $page_title = 'Explore Our Gallery'; ?>
+<?php include(SHARED_PATH .'/public_header.php');?>
 
 
     <section class="gallery-container">
@@ -12,4 +13,4 @@
         <!-- Add more gallery items as needed -->
     </section>
 
-    <?php include('../private/shared/public_footer.php');?>
+    <?php include(SHARED_PATH .'/public_footer.php');?>
