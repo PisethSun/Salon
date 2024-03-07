@@ -1,3 +1,3 @@
 <footer>
-        <p>&copy; <?php echo date('Y')?> Your Website</p>
+        <p>&copy; <?php echo date('Y')?> Helen's Nail & Spa</p>
     </footer>
