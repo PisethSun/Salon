@@ -7,7 +7,7 @@ if(!isset($page_title)) { $page_title = 'Staff Area';}
     <title>Helen's - <?php echo $page_title;?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="<?php echo url_for('/styles/style.css');?>">
     
     
 </head>
@@ -17,6 +17,6 @@ if(!isset($page_title)) { $page_title = 'Staff Area';}
     </head>
     <navigation>
     <ul>
-        <li><a href="index.php">Home</a></li>
+        <li><a href="<?php echo url_for('/staff/index.php');?>">Home</a></li>
     </ul>
     </navigation>
