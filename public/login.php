@@ -31,22 +31,44 @@ if (is_post_request()) {
 ?>
 <?php $page_title = 'Login'; ?>
 <?php include(SHARED_PATH .'/public_header.php');?>
+<div class="uk-container uk-container uk-align-center  uk-text-center ">
 
-<section>
-    <form action="login.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+  <h1 class="title" style="font-size:50px; font-family: 'Faustina', serif;">Welcome To <?=APP_NAME?></h1>
+  
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+    <hr class="uk-divider-icon">
+   
+   
+ <form action="" method="POST">
+<div class="form-outline " data-mdb-input-init>
 
-        <button type="submit">Login</button>
-    </form>
 
-    <?php foreach ($errors as $error) {
-        echo "<p>{$error}</p>";
-    } ?>
-</section>
+  <div class="uk-margin  ">
+      
+       <div class="uk-inline uk-width-xlarge  ">
+           <span class="uk-form-icon" uk-icon="icon: mail"></span>
+        <input class="uk-input uk-width-1-1 uk-input uk-form-width-large uk-form-large " type="email" name="email"class="box"  required aria-label="Large">
+    </div>
+     </div>
+  <div class="uk-margin ">
+      
+      
+       <div class="uk-inline uk-width-xlarge ">
+           <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+        <input class="uk-input uk-width-1-1 uk-input uk-form-width-large uk-form-large" type="password" name="pass" class="box" required aria-label="Large">
+    </div>
+ </div>
+      
+      <button class="uk-button uk-button-primary" type="submit" value="login now" class="btn" name="submit">Login</button>
+      
+     
+     </div>
+  
+ </form>
+ <hr class="uk-divider-icon">
+ <button onclick="location.href='register.php';" class="uk-button uk-button-secondary "> <p style="color:white; font-size: 3em;">Don't have an account? Sign Up Now</p></button>
+ 
+</div>
 
 <?php include(SHARED_PATH .'/public_footer.php');?>
 </body>
