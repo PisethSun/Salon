@@ -142,7 +142,7 @@
 <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center uk-margin-large-top  " uk-grid>
   
         <div class=" uk-padding uk-light uk-align-center ">
-            <h2 class= "question" >Questions before getting started? <a class="getInTouch" href="<?php getur contact.php?>">Get in touch.</a> </h2>
+            <h2 class= "question" >Questions before getting started? <a class="getInTouch" href="<contact.php">Get in touch.</a> </h2>
         </div>
     </div>
 </div>
