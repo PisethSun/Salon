@@ -66,7 +66,7 @@ if (is_post_request()) {
   
  </form>
  <hr class="uk-divider-icon">
- <button onclick="location.href='register.php';" class="uk-button uk-button-secondary "> <p style="color:white; font-size: 3em;">Don't have an account? Sign Up Now</p></button>
+ <button onclick="location.href='signup.php';" class="uk-button uk-button-secondary "> <p style="color:white; font-size: 3em;">Don't have an account? Sign Up Now</p></button>
  
 </div>
 
