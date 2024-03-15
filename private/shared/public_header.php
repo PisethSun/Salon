@@ -57,7 +57,7 @@ if(!isset($page_title)) { $page_title = 'Welcome';}
         
          
          <a href="login.php">Login</a>
-         <a href="register.php">Sign Up</a>
+         <a href="signup.php">Sign Up</a>
 
       
 

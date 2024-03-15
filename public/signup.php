@@ -23,39 +23,75 @@ if (is_post_request()) {
 <?php $page_title = 'Create Account'; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 <section>
-    <h2>User Sign Up</h2>
-    <form action="signup.php" method="post" id="signupForm">
-        <!-- Account information -->
-        <label for="account_username">Username:</label>
-        <input type="text" id="account_username" name="account_username" required>
+<!--container-->
+<div class="uk-container uk-container uk-align-center uk-text-center">
+    <h1 class="title" style="font-size:50px; font-family: 'Faustina', serif;">Welcome To <?=APP_NAME?></h1>
+    <hr class="uk-divider-icon">
+    <form action="" enctype="multipart/form-data" method="POST">
+        <!-- Name (Username) -->
+        <div class="uk-margin">
+            <div class="uk-inline uk-width-xlarge">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input uk-form-width-large uk-form-large" type="text" name="account_username" placeholder="Enter your username" required>
+            </div>
+        </div>
+        <!-- First Name -->
+        <div class="uk-margin">
+            <div class="uk-inline uk-width-xlarge">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input uk-form-width-large uk-form-large" type="text" name="customer_first_name" placeholder="Enter your first name" required>
+            </div>
+        </div>
+        <!-- Last Name -->
+        <div class="uk-margin">
+            <div class="uk-inline uk-width-xlarge">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input uk-form-width-large uk-form-large" type="text" name="customer_last_name" placeholder="Enter your last name" required>
+            </div>
+        </div>
+        <!-- Email -->
+        <div class="uk-margin">
+            <div class="uk-inline uk-width-xlarge">
+                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                <input class="uk-input uk-form-width-large uk-form-large" type="email" name="customer_email" placeholder="Enter your email" required>
+            </div>
+        </div>
+        <!-- Phone -->
+        <div class="uk-margin">
+            <div class="uk-inline uk-width-xlarge">
+                <span class="uk-form-icon" uk-icon="icon: receiver"></span>
+                <input class="uk-input uk-form-width-large uk-form-large" type="tel" name="customer_phone" placeholder="Enter your phone" required>
+            </div>
+        </div>
+        <!-- Password -->
+        <div class="uk-margin">
+            <div class="uk-inline uk-width-xlarge">
+                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                <input class="uk-input uk-form-width-large uk-form-large" type="password" name="account_password" placeholder="Enter your password" required>
+            </div>
+        </div>
+        <!-- Confirm Password -->
+        <div class="uk-margin">
+            <div class="uk-inline uk-width-xlarge">
+                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                <input class="uk-input uk-form-width-large uk-form-large" type="password" name="confirm_password" placeholder="Confirm your password" required>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <button class="uk-button uk-button-primary" type="submit" name="submit">Sign Up Now</button>
+        <!-- Forget Password -->
+        <button onclick="location.href='forgetpw.php';" class="uk-button uk-button-secondary" type="button">Forget Password?</button>
+        <hr class="uk-divider-icon">
+        <!-- Login Redirect -->
+        <button onclick="location.href='login.php';" class="uk-button uk-button-secondary" type="button">
+            <p style="color:white; font-size: 2em;">Already have an account? Login Now</p>
+        </button>
+    </form>
+</div>
 
-        <!-- Customer information -->
-        <label for="customer_first_name">First Name:</label>
-        <input type="text" id="customer_first_name" name="customer_first_name" required>
-
-        <label for="customer_last_name">Last Name:</label>
-        <input type="text" id="customer_last_name" name="customer_last_name" required>
-
-        <label for="customer_email">Email:</label>
-        <input type="email" id="customer_email" name="customer_email" required>
-
-        <label for="customer_phone">Phone:</label>
-        <input type="tel" id="customer_phone" name="customer_phone" required>
-
-        <label for="account_password">Password:</label>
-        <input type="password" id="account_password" name="account_password" required>
-
-        <!-- Confirm password -->
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password" required>
-
-        <button type="submit">Sign Up</button>
-
-        <!-- Display errors -->
         <?php foreach ($errors as $error) {
             echo "<p>{$error}</p>";
         } ?>
-    </form>
 </section>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
