@@ -62,7 +62,7 @@
         $errors[] = "Password must contain at least 1 number";
       } elseif (!preg_match('/[^A-Za-z0-9\s]/', $account['account_password'])) {
         $errors[] = "Password must contain at least 1 symbol";
-      } elseif($account['username'] == $account['account_password']) {
+      } elseif($account['account_username'] == $account['account_password']) {
         $errors[] = "Username and password must be different";
       }
 

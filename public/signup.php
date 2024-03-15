@@ -1,56 +1,61 @@
 <?php
 require_once('../private/initialize.php');
 
+$errors = [];
 
 if (is_post_request()) {
-  $account = [];
-  $account['account_username'] = $_POST['account_username'] ?? '';
-  $account['account_password'] = $_POST['account_password'] ?? '';
-  $account['account_access_level'] = $_POST['account_access_level'] ?? '';
-  $account['person_id'] = $_POST['person_id'] ?? '';
+    $account = [];
+    $account['account_username'] = $_POST['account_username'] ?? '';
+    $account['account_password'] = $_POST['account_password'] ?? '';
+    $confirm_password = $_POST['confirm_password'] ?? '';
 
-  // Add other necessary fields (e.g., account_status, account_creation_date)
-
-  if (!empty($account['account_username']) && !empty($account['account_password']) && !empty($account['account_access_level']) && !empty($account['person_id'])) {
-
-      // You may generate account_id, set account_status, account_creation_date here as needed
-
-      //save to database
-      $query = "INSERT INTO account (account_username, account_password, account_access_level, person_id) 
-                VALUES ('{$account['account_username']}', '{$account['account_password']}', '{$account['account_access_level']}', '{$account['person_id']}')";
-
-      mysqli_query($db, $query);
-
-      // Redirect to a success page or login page
-      header("Location: login.php");
-      die;
-  }
+    // Customer information
+    $customer = [];
+    $customer['customer_first_name'] = $_POST['customer_first_name'] ?? '';
+    $customer['customer_last_name'] = $_POST['customer_last_name'] ?? '';
+    $customer['customer_email'] = $_POST['customer_email'] ?? '';
+    $customer['customer_phone'] = $_POST['customer_phone'] ?? '';
 }
 ?>
 
+<!-- The rest of your HTML code remains unchanged -->
+
 <?php $page_title = 'Create Account'; ?>
-<?php include(SHARED_PATH .'/public_header.php');?>
+<?php include(SHARED_PATH . '/public_header.php'); ?>
 <section>
-<h2>User Sign Up</h2>
+    <h2>User Sign Up</h2>
     <form action="signup.php" method="post" id="signupForm">
+        <!-- Account information -->
         <label for="account_username">Username:</label>
         <input type="text" id="account_username" name="account_username" required>
+
+        <!-- Customer information -->
+        <label for="customer_first_name">First Name:</label>
+        <input type="text" id="customer_first_name" name="customer_first_name" required>
+
+        <label for="customer_last_name">Last Name:</label>
+        <input type="text" id="customer_last_name" name="customer_last_name" required>
+
+        <label for="customer_email">Email:</label>
+        <input type="email" id="customer_email" name="customer_email" required>
+
+        <label for="customer_phone">Phone:</label>
+        <input type="tel" id="customer_phone" name="customer_phone" required>
 
         <label for="account_password">Password:</label>
         <input type="password" id="account_password" name="account_password" required>
 
-        <label for="account_access_level">Access Level:</label>
-        <select id="account_access_level" name="account_access_level">
-            <option value="1">Admin</option>
-            <option value="2">User</option>
-            <!-- Add more options if needed -->
-        </select>
-
-        <label for="person_id">Person ID:</label>
-        <input type="text" id="person_id" name="person_id" required>
+        <!-- Confirm password -->
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
 
         <button type="submit">Sign Up</button>
+
+        <!-- Display errors -->
+        <?php foreach ($errors as $error) {
+            echo "<p>{$error}</p>";
+        } ?>
     </form>
 </section>
 
-<?php include(SHARED_PATH .'/public_footer.php');?>
+<?php include(SHARED_PATH . '/public_footer.php'); ?>
