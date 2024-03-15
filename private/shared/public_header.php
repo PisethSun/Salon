@@ -37,25 +37,21 @@ if(!isset($page_title)) { $page_title = 'Welcome';}
 </head>
 <body>
 
-<header class="header">
+<header class="header style:box-shadow:none">
 
    <div class="flex">
         <nav class="navbar">
 
-       <a href="gallery.php">Gallery</a>
+        <a href="gallery.php">Gallery</a>
          <a href="products.php">Products</a>
          <a href="services.php">Services</a>
-         <a href="contact_notyetlogin.php">Contact</a>
+         <a href="contact.php">Contact</a>
 
           </nav>
 
       <a href="index.php" class="logo"><?=APP_NAME?><span>&trade;</span></a>
 
       <nav class="navbar">
-        
-
-        
-         
          <a href="login.php">Login</a>
          <a href="signup.php">Sign Up</a>
 

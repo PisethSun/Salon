@@ -78,8 +78,5 @@
       </div>
       <!--Grid row-->
     </div>
-    <!-- Grid container -->
-  
- 
-        <p>&copy; <?php echo date('Y')?> Helen's Nail & Spa</p>
+
     </footer>
