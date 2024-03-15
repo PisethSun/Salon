@@ -10,9 +10,8 @@
     <h1 style="font-size:20px;font-family: 'Faustina', serif;">Our information Below</h1>
 
     <div class="d-flex flex-wrap justify-content-center">
-
-  
-        <div class="col-lg-4 col-md-6 mb-4 mb-md-0 fs-3 text-center">
+        <!-- Added 'me-lg-5' for right margin on large screens -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0 fs-3 text-center me-lg-5">
             <h5 class="text-uppercase mb-4">Opening hours</h5>
             <table class="table text-center text-white">
                 <tbody class="font-weight-normal fs-3">
@@ -31,8 +30,6 @@
                 </tbody>
             </table>
         </div>
-
-      
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0 fs-3">
             <div class="form-outline form-white mb-4">
                 <input type="text" id="formControlLg" class="form-control form-control-lg" />
@@ -43,7 +40,7 @@
                     <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">30 Boston St #5, Lynn, MA 01904</span>
                 </li>
                 <li class="mb-3">
-                    <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span>
+                    <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2"><a href="mailto:<?=APP_EMAIL?>"><?=APP_EMAIL?></a></span>
                 </li>
                 <li class="mb-3">
                     <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ (781) 592-0992</span>
