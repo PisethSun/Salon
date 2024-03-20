@@ -2,21 +2,57 @@
 require_once('../private/initialize.php');
 
 $errors = [];
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+    // Assuming all necessary validations are performed before this point
+    
+    $connection = db_connect();
+    
+    
+    try {
+        // Sanitize inputs
+        $customerFirstName = db_escape($connection, $_POST['customer_first_name']);
+        $customerLastName = db_escape($connection, $_POST['customer_last_name']);
+        $customerEmail = db_escape($connection, $_POST['customer_email']);
+        $customerPhone = db_escape($connection, $_POST['customer_phone']);
+        $accountUsername = db_escape($connection, $_POST['account_username']);
+        $accountPassword = db_escape($connection, $_POST['account_password']);
+        
+        // print "<h2>" . $customerFirstName . "</h2>";
+        // Hash the password
+        $hashedPassword = password_hash($accountPassword, PASSWORD_DEFAULT);
+        
+        // Insert into customer table
+        $customerSql = "INSERT INTO customer (customer_first_name, customer_last_name, customer_email, customer_phone) VALUES ('$customerFirstName', '$customerLastName', '$customerEmail', '$customerPhone')";
+      
+        mysqli_query($connection, $customerSql);
+        confirm_result_set(mysqli_affected_rows($connection)); // Custom function to confirm query success
+        
+      
+        // Retrieve the ID of the newly inserted customer record
+        $customer_id = mysqli_insert_id($connection);
+        print "<h2>" . $customer_id . "</h2>";
+        // Insert into account table
+        $accountSql = "INSERT INTO account (account_username, account_password, account_access_level, account_status, account_creation_date, person_id) VALUES ('$accountUsername', '$hashedPassword', '0', 'active', NOW(), '$customer_id')";
+        mysqli_query($connection, $accountSql);
+        confirm_result_set(mysqli_affected_rows($connection)); // Custom function to confirm query success
+    
 
-if (is_post_request()) {
-    $account = [];
-    $account['account_username'] = $_POST['account_username'] ?? '';
-    $account['account_password'] = $_POST['account_password'] ?? '';
-    $confirm_password = $_POST['confirm_password'] ?? '';
+        // After successful account creation, redirect to the login page
+        // redirect_to('login.php');
+        
+    } catch (Exception $e) {
+        // Rollback transaction if any part of the process fails
+        mysqli_rollback($connection);
+        echo "An error occurred while creating the account: " . $e->getMessage();
+    } 
 
-    // Customer information
-    $customer = [];
-    $customer['customer_first_name'] = $_POST['customer_first_name'] ?? '';
-    $customer['customer_last_name'] = $_POST['customer_last_name'] ?? '';
-    $customer['customer_email'] = $_POST['customer_email'] ?? '';
-    $customer['customer_phone'] = $_POST['customer_phone'] ?? '';
 }
+
+
+
 ?>
+
+
 
 <!-- The rest of your HTML code remains unchanged -->
 

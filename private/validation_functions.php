@@ -101,8 +101,8 @@
   function has_unique_username($username, $current_id="0") {
     global $db;
 
-    $sql = "SELECT * FROM admins ";
-    $sql .= "WHERE username='" . db_escape($db, $username) . "' ";
+    $sql = "SELECT * FROM account ";
+    $sql .= "WHERE account_username ='" . db_escape($db, $username) . "' ";
     $sql .= "AND id != '" . db_escape($db, $current_id) . "'";
 
     $result = mysqli_query($db, $sql);

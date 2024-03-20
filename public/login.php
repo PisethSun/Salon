@@ -2,33 +2,43 @@
 require_once('../private/initialize.php');
 
 $errors = [];
-$username = '';
-$password = '';
+$account_username = '';
+$account_password = '';
 
 if (is_post_request()) {
-    $employee_username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $account_username = $_POST['account_username'] ?? '';
+    $account_password = $_POST['account_password'] ?? '';
 
-    // Perform authentication here (you need to implement this part)
-    $authenticated_user = authenticate_user($employee_username, $password );
-
-    if ($authenticated_user) {
-        if ($authenticated_user['account_access_level'] == '1') {
-            // Redirect to admin page
-            header("Location: ./staff/admin/index.php");
-            exit;  // Important to exit after a header redirect
-        } else {
-            // Redirect to index page for regular users
-            header("Location: ./users/index.php");
-            exit;
-        }
-    } else {
-        // Authentication failed
-        $errors[] = 'Invalid username or password.';
+    if (is_blank($account_username)) {
+        $errors[] = 'Username cannot be blank.';
     }
-    
+    if (is_blank($account_password)) {
+        $errors[] = 'Password cannot be blank.';
+    }
+
+    if(empty($errors)){
+
+        $employee = find_employee_by_username($employee_username);
+        if ($employee) {
+            $login_failure_msg = "Login in was unsuccesful.";
+            if(password_verify($employee_password, $employee['employee_hashed_password'])){
+                // password matches 
+                log_in_admin($admin);
+                redirect_to(url_for('/staff/index.php'));
+            }else{
+
+                // username found but password does not match
+                $errors[] = "Login in was unsuccesful.";
+            }
+            
+        }else{
+        $errors[] = "Login in was unsuccesful.";
+
+    }
+}
 }
 ?>
+
 <?php $page_title = 'Login'; ?>
 <?php include(SHARED_PATH .'/public_header.php');?>
 <div class="uk-container uk-container uk-align-center  uk-text-center ">
@@ -38,16 +48,17 @@ if (is_post_request()) {
 
     <hr class="uk-divider-icon">
    
-   
- <form action="" method="POST">
+   <?php echo display_errors($errors);?>
+
+ <form action="login.php" method="POST">
 <div class="form-outline " data-mdb-input-init>
 
 
   <div class="uk-margin  ">
       
        <div class="uk-inline uk-width-xlarge  ">
-           <span class="uk-form-icon" uk-icon="icon: mail"></span>
-        <input class="uk-input uk-width-1-1 uk-input uk-form-width-large uk-form-large " type="email" name="email"class="box"  required aria-label="Large">
+           <span class="uk-form-icon" uk-icon="icon: user"></span>
+        <input class="uk-input uk-width-1-1 uk-input uk-form-width-large uk-form-large " type="text" name="account_username" value ="<?php echo h($account_username);?>"class="box" >
     </div>
      </div>
   <div class="uk-margin ">
@@ -55,7 +66,7 @@ if (is_post_request()) {
       
        <div class="uk-inline uk-width-xlarge ">
            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-        <input class="uk-input uk-width-1-1 uk-input uk-form-width-large uk-form-large" type="password" name="pass" class="box" required aria-label="Large">
+        <input class="uk-input uk-width-1-1 uk-input uk-form-width-large uk-form-large" type="password" name="account_password" value ="" class="box">
     </div>
  </div>
       
@@ -66,7 +77,7 @@ if (is_post_request()) {
   
  </form>
  <hr class="uk-divider-icon">
- <button onclick="location.href='signup.php';" class="uk-button uk-button-secondary "> <p style="color:white; font-size: 3em;">Don't have an account? Sign Up Now</p></button>
+ <button onclick="location.href='<?php echo url_for('/signup.php');?>" class="uk-button uk-button-secondary "> <p style="color:white; font-size: 3em;">Don't have an account? Sign Up Now</p></button>
  
 </div>
 

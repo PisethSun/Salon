@@ -1,5 +1,5 @@
 <?php 
-if(!isset($page_title)) { $page_title = 'Staff Area';}
+if(!isset($page_title)) { $page_title = 'User Home';}
 ?> 
 <!DOCTYPE html>
 <html lang="en">

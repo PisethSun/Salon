@@ -79,4 +79,10 @@
       <!--Grid row-->
     </div>
 
+
+
+
+
     </footer>
+
+    <?php db_disconnect($db);?>

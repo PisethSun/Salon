@@ -5,6 +5,8 @@
 
 
 
-<div id="content"></div>
+<div id="content">
+
+</div>
 
 <?php include(SHARED_PATH .'/public_footer.php');?>
