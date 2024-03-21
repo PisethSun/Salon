@@ -96,6 +96,5 @@ function authenticate_user($username, $password)
 }
 
 
-?>
 
 

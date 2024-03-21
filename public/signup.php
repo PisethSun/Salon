@@ -115,8 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
         </div>
         <!-- Submit Button -->
         <button class="uk-button uk-button-primary" type="submit" name="submit">Sign Up Now</button>
-        <!-- Forget Password -->
-        <button onclick="location.href='forgetpw.php';" class="uk-button uk-button-secondary" type="button">Forget Password?</button>
+     
         <hr class="uk-divider-icon">
         <!-- Login Redirect -->
         <button onclick="location.href='login.php';" class="uk-button uk-button-secondary" type="button">
