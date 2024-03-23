@@ -27,17 +27,17 @@
     return $account; // returns an assoc. array
   }
 
-  function find_employee_by_username($employee_username) {
+  function find_account_by_username($account_username) {
     global $db;
 
-    $sql = "SELECT * FROM employee ";
-    $sql .= "WHERE employee_username='" . db_escape($db, $employee_username) . "' ";
+    $sql = "SELECT * FROM account ";
+    $sql .= "WHERE account_username='" . db_escape($db, $account_username) . "' ";
     $sql .= "LIMIT 1";
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
-    $employee = mysqli_fetch_assoc($result); // find first
+    $account = mysqli_fetch_assoc($result); // find first
     mysqli_free_result($result);
-    return $employee; // returns an assoc. array
+    return $account; // returns an assoc. array
   }
 
   function validate_account($account, $options=[]) {
@@ -160,7 +160,6 @@
  
 
 
-?>
 
 
 

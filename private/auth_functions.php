@@ -1,15 +1,15 @@
 <?php
 
 // Performs all actions necessary to log in an admin
-function log_in_admin($admin) {
-  // Prevent session fixation attacks
-  session_regenerate_id();
-  $_SESSION['employee_id'] = $admin['employee_id'];
-  $_SESSION['employee_username'] = $admin['employee_username'];
-  $_SESSION['last_login'] = time();
-  $_SESSION['login_expires'] = strtotime("+1 day midnight");
-  return true;
-}
+// function log_in_admin($account) {
+//   // Prevent session fixation attacks
+//   session_regenerate_id();
+//   $_SESSION['account_id'] = $account['employee_id'];
+//   $_SESSION['employee_username'] = $account['employee_username'];
+//   $_SESSION['last_login'] = time();
+//   $_SESSION['login_expires'] = strtotime("+1 day midnight");
+//   return true;
+// }
 
 function log_out_admin() {
   unset($_SESSION['admin_id']);

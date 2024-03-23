@@ -30,5 +30,3 @@
   // everypage login to DB
   $db = db_connect();
   $errors = [];
-
-?>

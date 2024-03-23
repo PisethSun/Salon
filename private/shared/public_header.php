@@ -59,6 +59,8 @@ if(!isset($page_title)) { $page_title = 'Welcome';}
 
       </nav>
 
+      <?php echo display_session_message();?>
+
   <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
       </div>

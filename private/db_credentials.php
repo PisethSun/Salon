@@ -8,5 +8,3 @@ define("APP_NAME", "Helen's Salon & Spa");
 define("GALLERY_NAME", "Our Showcase Collections");
 define ('APP_PINK', 'OUR DESIGN');
 define ('APP_EMAIL', 'Helennail@gmail.com');
-
-?>
