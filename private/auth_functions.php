@@ -30,8 +30,8 @@ function log_in_users($users) {
 }
 
 function log_out_users() {
-  unset($_SESSION['account_id']);
-  unset($_SESSION['account_username']);
+  unset($_SESSION['user_id']);
+  unset($_SESSION['username']);
   unset($_SESSION['last_login']);
   unset($_SESSION['login_expires']);
   return true;

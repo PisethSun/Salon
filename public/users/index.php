@@ -4,5 +4,3 @@
 
 
 
-
-<?php include(SHARED_PATH .'/user_footer.php');?>

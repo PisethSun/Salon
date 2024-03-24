@@ -18,7 +18,7 @@ if(!isset($page_title)) { $page_title = 'User Home';}
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="<?php echo url_for('/css/style.css');?>">
       <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -43,22 +43,23 @@ if(!isset($page_title)) { $page_title = 'User Home';}
 <div class="flex">
      <nav class="navbar">
 
-     <a href="gallery.php">Gallery</a>
-      <a href="products.php">Products</a>
-      <a href="services.php">Services</a>
-      <a href="contact.php">Contact</a>
+     <a href="reservation.php">Reservation Record</a>
+      <a href="schedule.php"></a>
+
 
        </nav>
 
-   <a href="index.php" class="logo"><?=APP_NAME?><span>&trade;</span></a>
+   <a class="logo"><?=APP_NAME?><span>&trade;</span></a>
 
    <nav class="navbar">
-      <a href="login.php">Hello: <?php echo $accountUsername;?></a>
-      <a href="logout.php"></a>
+        <?php if(isset($_SESSION['username'])): ?>
+            <a>Hi,<?php echo htmlspecialchars($_SESSION['username']); ?></a>
+            <a href="<?php echo url_for('index.php');?>">Logout</a>
 
-   
+          
+        <?php endif; ?>
+     </nav>
 
-   </nav>
 
 
 

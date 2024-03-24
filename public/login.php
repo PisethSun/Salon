@@ -1,7 +1,6 @@
 <?php
 require_once('../private/initialize.php');
 
-session_start(); // Start the session to store user info upon successful login
 
 $errors = [];
 $username = '';

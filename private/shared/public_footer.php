@@ -39,6 +39,12 @@
           </div>
   
           <ul class="fa-ul" style="margin-left: 1.65em; ">
+         
+      
+          <li class="mb-3">
+          <span class="fa-li"><i class="far fa-id-badge"></i></span><span class="ms-2"> <a href="employee_login.php" style="color: black;">Admin Login</a></span>
+
+            </li>
             <li class="mb-3">
               <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">30 Boston St #5, Lynn, MA 01904</span>
             </li>
