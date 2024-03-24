@@ -6,8 +6,4 @@
 </div>
 <div class="container-xl" style="height: 500px; background-color: plum">
 
-Home
-
 </div>
-
-

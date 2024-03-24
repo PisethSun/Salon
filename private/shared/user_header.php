@@ -43,8 +43,11 @@ if(!isset($page_title)) { $page_title = 'User Home';}
 <div class="flex">
      <nav class="navbar">
 
-     <a href="reservation.php">Reservation Record</a>
-      <a href="schedule.php"></a>
+       <a href="<?php echo url_for('/users/index.php');?>">Home</a>
+     <a href="<?php echo url_for('/users/reservation.php');?>">Booking</a>
+
+     <a href="<?php echo url_for('/users/invoice.php');?>">Invoice</a>
+
 
 
        </nav>
