@@ -81,6 +81,7 @@ function require_login() {
     redirect_to(url_for('/login.php'));
   } else {
     // Do nothing, let the rest of the page proceed.
+    //TODO - Only Users and staff folder needs require_login();
   }
 
 }
