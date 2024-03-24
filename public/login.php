@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
                 $_SESSION['username'] = $user['account_username'];
 
                 // Redirect the user to another page (e.g., dashboard)
-               redirect_to(url_for('index.php'));
+               redirect_to(url_for('users/index.php'));
                 
             } else {
                 $errors[] = 'Invalid username or password.';
