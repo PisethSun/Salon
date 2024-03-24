@@ -60,7 +60,7 @@ function is_logged_in() {
   // Having a admin_id in the session serves a dual-purpose:
   // - Its presence indicates the admin is logged in.
   // - Its value tells which admin for looking up their record.
-  return isset($_SESSION['admin_id']) && login_is_still_valid();
+  return isset($_SESSION['user_id']) && login_is_still_valid();
 }
 
 // Returns true if a page is in the allow-list and is
@@ -78,7 +78,7 @@ function page_exempt_from_auth() {
 // require a valid login before granting access to the page.
 function require_login() {
   if(!is_logged_in() && !page_exempt_from_auth()) {
-    redirect_to(url_for('/staff/login.php'));
+    redirect_to(url_for('/login.php'));
   } else {
     // Do nothing, let the rest of the page proceed.
   }
