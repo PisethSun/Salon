@@ -33,7 +33,7 @@ $result = $stmt->get_result();
 
     <br>
 
-    <div class="container-xl" style="background-color: white; height: 200px;width: 500px;">
+    <div class="container-xl" style="background-color: white; ">
         <table class="table" style="color: black; background-color: white;">
             <thead>
                 <tr>
